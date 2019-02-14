@@ -115,6 +115,9 @@ if [ ! -e $DETACH_ENABLED ] && [ ! -e $DETACH_DISABLED ]; then
     exit 1;
 fi;
 
+# detach is used so set a flag for universal installer to aviod conflicts
+echo "Please keep this file! It's a flag for the YTVA universal installer" > /data/ytva-magisk-detach-enabled
+
 (
 while [ 1 ]; do
     if [ `getprop sys.boot_completed` = 1 ]; then
