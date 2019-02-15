@@ -109,7 +109,7 @@ ui_print "- Extracting module files"
 unzip -o "$ZIP" -d $INSTALLER >&2;
 for arch in arm x86; do
     if echo $ARCH | grep -q $arch; then
-        ui_print "- $arch system detected using $arch version";
+        ui_print "- $arch system detected using $arch (32/64bit) version";
         cp -af "$INSTALLER/$arch/system" $MODPATH;
         break;
     fi;
