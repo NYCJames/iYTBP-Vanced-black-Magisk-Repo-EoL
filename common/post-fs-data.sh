@@ -101,21 +101,16 @@ else
 fi;
 }
 
-# force enable here when universal installer was used
-if [ -e /data/ytva-detach-installed ] && [ ! -e $DETACH_ENABLED ]; then
-    echo "" > /cache/enable_detach;
-fi;
-
 if [ ! -e $DETACH_ENABLED ] && [ ! -e $DETACH_DISABLED ]; then
-    echo "" >> $LOGFILE;
-    echo "No option files found in /cache! nothing to do!" > $LOGFILE;
+    echo "" > $LOGFILE;
+    echo "No option files found in /cache! nothing to do!" >> $LOGFILE;
     echo "You have to put at least a file called 'enable_detach'" >> $LOGFILE;
     echo "into /cache directory to make things start" >> $LOGFILE;
     echo "Exiting the script now, no further execution until next boot" >> $LOGFILE;
     exit 1;
 fi;
 
-# detach is used so set a flag for universal installer to aviod conflicts
+# detach is used so set a flag for universal installer to avoid conflicts
 echo "Please keep this file! It's a flag for the YTVA universal installer" > /data/ytva-magisk-detach-enabled
 
 (
@@ -139,6 +134,7 @@ while [ 1 ]; do
 	    rm -f $DETACH_ENABLED;
 	    rm -f $DETACH_DISABLED;
 	    rm -f $SOFT_DETACH;
+	    rm -f /data/ytva-magisk-detach-enabled
 	    echo -n `date +%H:%M:%S` >> $LOGFILE;
 	    echo "" >> $LOGFILE;
 	    echo "All disabled services enabled again, apps should get attached to playstore again soon!" >> $LOGFILE;
