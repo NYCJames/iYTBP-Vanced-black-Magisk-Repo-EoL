@@ -15,5 +15,3 @@ reboot the phone like with detaching 60 seconds after reboot it gets attached to
 WARNING: Due to the hacky nature of this method there might come up unexpected issues with the playstore and its functions. So be warned and enable it at your own risk!**
 
 **This repo gets always updated `AFTER` the official Apk variants are available/released so expect up-to-date delays**
-
-[Latest CHANGELOG](http://vanced.app/Home/Changelogs)
