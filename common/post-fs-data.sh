@@ -101,6 +101,17 @@ else
 fi;
 }
 
+if [ -e $DETACH_ENABLED ]; then
+    if [ -e /data/ytva-detach-installed ] || [ -d /data/adb/modules/Detach ]; then
+	rm -f $DETACH_ENABLED;
+	echo "" > $LOGFILE;
+	echo "Execution disabled! Another detach method was found!" >> $LOGFILE;
+	echo "You have to remove it before u can use this script!" >> $LOGFILE;
+	echo "Exiting the script now, no further execution until next boot" >> $LOGFILE;
+	exit 1;
+    fi;
+fi;
+
 if [ ! -e $DETACH_ENABLED ] && [ ! -e $DETACH_DISABLED ]; then
     echo "" > $LOGFILE;
     echo "No option files found in /cache! nothing to do!" >> $LOGFILE;
