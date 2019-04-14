@@ -12,7 +12,7 @@ MODDIR=${0%/*}
 # How it works
 # ------------
 # If the file /cache/enable_detach exists the detachment loop starts after booting via magisk's post-fs-data handling
-# and does it's thing periodically at a given interval. this is by default once every 180 seconds (this delay can be
+# and does it's thing periodically at a given interval. this is by default once every 60 seconds (this delay can be
 # adjusted during runtime by putting a value into the enable_detach file!) which is every 2 mins. unfortunately
 # this can't be said exactly because of the influence of sleep  events of the android system, so expect much longer delays
 # or even complete stops during that phases! the running loop can be stopped either by deleting the file 'enable_detach'
@@ -56,11 +56,11 @@ MAX_LOG_ENTRIES=250;
 LOG_ENTRIES=0;
 
 # default amount of seconds for delay (decrease this for faster checks, increase it for slower checks)
-LOOP_DELAY=180;
+LOOP_DELAY=60;
 
 # NOTE: u can overwrite this during runtime by putting a value into the /cache/enable_detach file
 # the default value below is used for the initial start delay of 60 seconds after boot and the second
-# default delay (LOOP_DELAY) of 180 = 3 mins is used for the delay of the running loop
+# default delay (LOOP_DELAY) of 1 min is used for the delay of the running loop
 DELAY=60;
 
 logcount() {
